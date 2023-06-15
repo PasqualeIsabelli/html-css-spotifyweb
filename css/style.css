@@ -1,3 +1,11 @@
+:root {
+  --upbar-bg: #080b12;
+  --playerbar-bg: #282828;
+  --navbar-bg: #000000;
+  --content-bg: #141922;
+  --btn-color: #7D7F84;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,6 +13,255 @@
 }
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
-  overflow: hidden; /*???? vedere reg... questo serve  per far funzionare tutto e non ci dà la scrollbar*/
+  overflow: hidden; /* per evitare che in caso di errore nei figli compaia la scrollbar generale, la nascondiamo di default */
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  flex-grow: 1;
+  overflow: auto;
+  display: flex;
+}
+
+.container-content {
+  background-color: var(--content-bg);
+  flex-grow: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.nav-bar {
+  width: 200px;
+  overflow: auto;
+  flex-shrink: 0;
+  background-color: var(--navbar-bg);
+  color: white;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.player-container {
+  background-color: var(--playerbar-bg);
+  color: white;
+  flex-shrink: 0; 
+  display: flex;
+}
+
+.up-bar {
+  width: calc(100% - 200px);
+  height: 100px;
+  background-color: var(--upbar-bg);
+  color: white;
+  position: fixed;
+  z-index: 1;
+}
+
+.content {
+  color: white;
+  padding: 110px 10px 10px 10px;
+}
+
+p {
+  color: var(--btn-color);
+  font-size: 15px;
+}
+
+/*Contenuto menu*/
+.logo {
+  width: 150px;
+}
+
+.nav-bar ul {
+  margin-top: 20px;
+}
+
+.nav-bar ul li{
+  font-size: 15px;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.nav-bar ul li a {
+  color: var(--btn-color);
+  text-decoration: none;
+}
+
+.svg {
+  width: 30px;
+}
+
+.little-svg {
+  width: 15px;
+}
+
+.installer {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.plus {
+  padding: 5px 10px;
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  background-color: var(--btn-color);
+}
+
+.user {
+  padding: 5px 5px 0 5px;
+  border-radius: 50%;
+  background-color: var(--btn-color);
+}
+
+.a {
+  text-decoration: none;
+  color: var(--btn-color);
+}
+
+.p-menu {
+  margin-top: 15px;
+}
+
+/*Contenuto main*/
+.categories {
+  text-align: center;
+}
+
+.categories > button {
+  margin: 0 10px;
+}
+
+section {
+  margin-top: 30px;
+}
+
+.card-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  width: 200px;
+}
+
+.card-radius {
+  height: 200px;
+  border-radius: 50%;
+}
+
+.img {
+  width: 100%;
+}
+
+.img-radius {
+  border-radius: 50%;
+}
+
+.title-song {
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.sub-text {
+  font-size: 11px;
+}
+
+/*Contenuto up-bar*/
+.btn {
+  color: var(--btn-color);
+  border: none;
+  background-color: transparent;
+}
+
+.button {
+  height: 100%;
+  position: relative;
+}
+
+.btn-upbar {
+  border: 1px solid white;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
+
+
+/* Contenuto player bar*/ /*controllare i float*/
+.left, .center, .right {
+  border: 1px solid red; /*togliere*/
+}
+
+.left, .right {
+  flex-grow: 2; /*modificare*/
+}
+
+.center {
+  flex-grow: 50; /*modificare*/
+}
+
+.song-name, .icon {
+  height: 100%;
+  float: left;
+  display: flex;
+}
+
+.little-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sinister {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.name {
+  margin-top: 50px;
+  transform: translate(0, -50%);
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-left {
+  margin-left: 50px;
+  gap: 20px;
+}
+
+.icon-right {
+  font-size: 12px;
+  float: right;
+  margin-right: 10px;
+  gap: 15px;
+}
+
+input {
+  font-size: 8px;
+}
+
+/*Media query*/
+@media screen (max-width: 1100px) {
+
 }
