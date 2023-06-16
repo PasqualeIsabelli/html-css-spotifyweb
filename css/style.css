@@ -39,7 +39,7 @@ body {
   flex-shrink: 0;
   background-color: var(--navbar-bg);
   color: white;
-  padding: 5px 20px;
+  padding: 10px 20px 5px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,6 +50,7 @@ body {
   color: white;
   flex-shrink: 0; 
   display: flex;
+  z-index: 2;
 }
 
 .up-bar {
@@ -72,6 +73,21 @@ p {
 }
 
 /*Contenuto menu*/
+.top-menu {
+  position: sticky;
+  top: 0;
+}
+
+.bottom-menu {
+  position: sticky;
+  bottom: 0;
+}
+
+.center-menu {
+  overflow: auto;
+  flex-shrink: 0;
+}
+
 .logo {
   width: 150px;
 }
@@ -91,6 +107,11 @@ p {
   text-decoration: none;
 }
 
+.center-menu { /*sistemare*/
+  overflow: auto;
+  flex-shrink: 0;
+}
+
 .svg {
   width: 30px;
 }
@@ -102,14 +123,15 @@ p {
 .installer {
   display: inline-block;
   margin-bottom: 10px;
+  font-size: 12px;
 }
 
-.plus {
-  padding: 5px 10px;
-  font-size: 30px;
-  color: black;
-  text-align: center;
-  background-color: var(--btn-color);
+.john {
+  padding: 10px 0;
+}
+
+.fa-square-plus {
+  font-size: 25px;
 }
 
 .user {
@@ -147,7 +169,7 @@ section {
 }
 
 .card {
-  width: 200px;
+  width: 140px;
 }
 
 .card-radius {
@@ -157,9 +179,20 @@ section {
 
 .img {
   width: 100%;
+  position: relative;
+}
+
+.play-card {
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 
 .img-radius {
+  width: 100%;
   border-radius: 50%;
 }
 
@@ -185,34 +218,56 @@ section {
   background-color: transparent;
 }
 
-.button {
+.button-container {
   height: 100%;
   position: relative;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translate(0, -50%);
 }
 
 .btn-upbar {
   border: 1px solid white;
   color: white;
   border-radius: 20px;
-  padding: 10px 15px;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(0, -50%);
+  padding: 10px 30px;
 }
 
 
-/* Contenuto player bar*/ /*controllare i float*/
-.left, .center, .right {
-  border: 1px solid red; /*togliere*/
-}
-
-.left, .right {
-  flex-grow: 2; /*modificare*/
-}
-
+/* Contenuto player bar*/ /*CONTROLLARE I FLOAT*/
 .center {
-  flex-grow: 50; /*modificare*/
+  margin: auto;
+}
+
+.up-center, .down-center{
+  text-align: center;
+}
+
+.up-center {
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.down-center {
+  padding-bottom: 20px;
+}
+
+.icon-center {
+  display: flex;
+  gap: 20px;
+}
+
+.play {
+  font-size: 25px;
+}
+
+.shuffle, .forward, .backward, .repeat {
+  align-self: center;
 }
 
 .song-name, .icon {
@@ -234,7 +289,7 @@ section {
 
 .name {
   margin-top: 50px;
-  transform: translate(0, -50%);
+  transform: translate(0, -70%);
   margin-left: 10px;
   font-size: 15px;
 }
@@ -246,19 +301,79 @@ section {
 }
 
 .icon-left {
-  margin-left: 50px;
-  gap: 20px;
+  margin-left: 20px;
+  gap: 18px;
+}
+
+.heart {
+  color: var(--btn-color);
+}
+
+.folder {
+  color: var(--btn-color);
 }
 
 .icon-right {
-  font-size: 12px;
+  font-size: 13px;
   float: right;
-  margin-right: 10px;
-  gap: 15px;
+  margin-right: 25px;
+  gap: 18px;
 }
 
 input {
   font-size: 8px;
+}
+
+.slider { /*modificare*/
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background: var(--btn-color);
+  background-color: white;
+}
+
+.b-slide {
+  width: 400px;
+  display: inline-block;
+}
+
+.time {
+  font-size: 12px;
+  margin: 5px;
+}
+
+/*Hover*/
+.hover:hover {
+  color: white;
+}
+
+.underline:hover {
+  text-decoration: underline;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+}
+
+.img:hover {
+  opacity: .5;
+}
+
+.img:hover .play-card {
+  display: block;
+}
+
+.img-radius:hover {
+  opacity: .5;
+}
+
+.play:hover {
+  transform: scale(1.5);
+}
+
+.slider:hover {
+  background: green;
+  opacity: .5;
 }
 
 /*Media query*/
