@@ -15,7 +15,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
-  overflow: hidden; /* per evitare che in caso di errore nei figli compaia la scrollbar generale, la nascondiamo di default */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -35,7 +35,7 @@ body {
 
 .nav-bar {
   width: 200px;
-  overflow: auto;
+  overflow: hidden;
   flex-shrink: 0;
   background-color: var(--navbar-bg);
   color: white;
@@ -51,6 +51,7 @@ body {
   flex-shrink: 0; 
   display: flex;
   z-index: 2;
+  flex-grow: 1;
 }
 
 .up-bar {
@@ -72,20 +73,26 @@ p {
   font-size: 15px;
 }
 
-/*Contenuto menu*/
+/*Contenuto menu laterale*/
 .top-menu {
-  position: sticky;
-  top: 0;
+  overflow: hidden;
+  padding-bottom: 10px;
 }
 
 .bottom-menu {
-  position: sticky;
-  bottom: 0;
+  overflow: hidden;
+  padding-top: 10px;
 }
 
 .center-menu {
+  flex-grow: 1;
+  display: flex;
   overflow: auto;
-  flex-shrink: 0;
+}
+
+.scroll-menu {
+  flex-grow: 1;
+  overflow: auto;
 }
 
 .logo {
@@ -105,11 +112,6 @@ p {
 .nav-bar ul li a {
   color: var(--btn-color);
   text-decoration: none;
-}
-
-.center-menu { /*sistemare*/
-  overflow: auto;
-  flex-shrink: 0;
 }
 
 .svg {
@@ -149,9 +151,16 @@ p {
   margin-top: 15px;
 }
 
+.border-left {
+  border-left: 2px solid #abfb2f;
+  margin-left: -20px;
+  padding-left: 15px;
+}
+
 /*Contenuto main*/
 .categories {
   text-align: center;
+  position: relative;
 }
 
 .categories > button {
@@ -211,6 +220,15 @@ section {
   font-size: 11px;
 }
 
+.border-bottom {
+  width: 30px;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 310px;
+  border-bottom: 1px solid #c0ff31;
+}
+
 /*Contenuto up-bar*/
 .btn {
   color: var(--btn-color);
@@ -238,28 +256,73 @@ section {
 }
 
 
-/* Contenuto player bar*/ /*CONTROLLARE I FLOAT*/
-.center {
-  margin: auto;
-}
-
-.up-center, .down-center{
-  text-align: center;
-}
-
-.up-center {
-  padding: 10px 0 10px 0;
+/* Contenuto player bar*/
+.left, .right {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.down-center {
-  padding-bottom: 20px;
+.center {
+  flex-grow: 1;
+}
+
+.sinister {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.name {
+  margin-left: 10px;
+}
+
+.icon { /*nella query assegnare display:block per far andare le icon una sull'altra*/
+  display: flex;
+  gap: 10px;
+}
+
+.icon-left {
+  margin-left: 20px;
+  color: var(--btn-color);
+  gap: 15px;
+}
+
+.icon-right {
+  margin-right: 20px;
+}
+
+.slider {
+  height: 5px;
+  background-color: var(--btn-color);
+  border-radius: 10px;
+}
+
+.slider-right {
+  width: 100px;
+  margin-top: 5px;
+}
+
+.slider-center {
+  width: 400px;
+  margin-top: 10px;
+}
+
+.white-slider {
+  width: 40%;
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.center-top {
+  display: flex;
 }
 
 .icon-center {
   display: flex;
+  margin: auto;
   gap: 20px;
+  padding-top: 15px;
 }
 
 .play {
@@ -270,76 +333,14 @@ section {
   align-self: center;
 }
 
-.song-name, .icon {
-  height: 100%;
-  float: left;
+.center-bottom {
   display: flex;
-}
-
-.little-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sinister {
-  width: 50px;
-  margin-left: 10px;
-}
-
-.name {
-  margin-top: 50px;
-  transform: translate(0, -70%);
-  margin-left: 10px;
-  font-size: 15px;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-left {
-  margin-left: 20px;
-  gap: 18px;
-}
-
-.heart {
-  color: var(--btn-color);
-}
-
-.folder {
-  color: var(--btn-color);
-}
-
-.icon-right {
-  font-size: 13px;
-  float: right;
-  margin-right: 25px;
-  gap: 18px;
-}
-
-input {
-  font-size: 8px;
-}
-
-.slider { /*modificare*/
-  -webkit-appearance: none;
-  width: 100%;
-  height: 3px;
-  background: var(--btn-color);
-  background-color: white;
-}
-
-.b-slide {
-  width: 400px;
-  display: inline-block;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .time {
   font-size: 12px;
-  margin: 5px;
 }
 
 /*Hover*/
@@ -371,9 +372,9 @@ input {
   transform: scale(1.5);
 }
 
-.slider:hover {
+.white-slider:hover {
   background: green;
-  opacity: .5;
+  opacity: .8;
 }
 
 /*Media query*/
