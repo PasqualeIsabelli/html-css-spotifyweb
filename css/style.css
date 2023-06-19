@@ -4,6 +4,7 @@
   --navbar-bg: #000000;
   --content-bg: #141922;
   --btn-color: #7D7F84;
+  --border-green: #abfb2f;
 }
 
 * {
@@ -75,12 +76,10 @@ p {
 
 /*Contenuto menu laterale*/
 .top-menu {
-  overflow: hidden;
   padding-bottom: 10px;
 }
 
 .bottom-menu {
-  overflow: hidden;
   padding-top: 10px;
 }
 
@@ -151,20 +150,22 @@ p {
   margin-top: 15px;
 }
 
+.mini-navbar {
+  display: none;
+}
+
 .border-left {
-  border-left: 2px solid #abfb2f;
+  border-left: 3px solid var(--border-green);
   margin-left: -20px;
   padding-left: 15px;
 }
 
 /*Contenuto main*/
 .categories {
-  text-align: center;
-  position: relative;
-}
-
-.categories > button {
-  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-size: 12px;
 }
 
 section {
@@ -178,7 +179,7 @@ section {
 }
 
 .card {
-  width: 140px;
+  width: 180px;
 }
 
 .card-radius {
@@ -197,11 +198,25 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
   display: none;
+}
+
+.play-card i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .img-radius {
   width: 100%;
+  border-radius: 50%;
+}
+
+.radius {
   border-radius: 50%;
 }
 
@@ -222,11 +237,10 @@ section {
 
 .border-bottom {
   width: 30px;
-  display: inline-block;
-  position: absolute;
-  top: 20px;
-  left: 310px;
-  border-bottom: 1px solid #c0ff31;
+  height: 2px;
+  margin: auto;
+  margin-top: 3px;
+  background-color: var(--border-green);
 }
 
 /*Contenuto up-bar*/
@@ -276,7 +290,7 @@ section {
   margin-left: 10px;
 }
 
-.icon { /*nella query assegnare display:block per far andare le icon una sull'altra*/
+.icon { 
   display: flex;
   gap: 10px;
 }
@@ -298,12 +312,12 @@ section {
 }
 
 .slider-right {
-  width: 100px;
+  width: 80px;
   margin-top: 5px;
 }
 
 .slider-center {
-  width: 400px;
+  width: 300px;
   margin-top: 10px;
 }
 
@@ -321,8 +335,15 @@ section {
 .icon-center {
   display: flex;
   margin: auto;
-  gap: 20px;
-  padding-top: 15px;
+  padding-top: 10px;
+}
+
+.icon-top {
+  gap: 30px;
+}
+
+.icon-bottom {
+  gap: 15px;
 }
 
 .play {
@@ -335,8 +356,7 @@ section {
 
 .center-bottom {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .time {
@@ -356,16 +376,8 @@ section {
   transform: scale(1.1);
 }
 
-.img:hover {
-  opacity: .5;
-}
-
 .img:hover .play-card {
   display: block;
-}
-
-.img-radius:hover {
-  opacity: .5;
 }
 
 .play:hover {
@@ -378,6 +390,87 @@ section {
 }
 
 /*Media query*/
-@media screen (max-width: 1100px) {
+@media screen and (max-width: 1100px) {
+  .categories {
+    justify-content: space-around;  
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
+  .card-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .slider-center {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .slider-center {
+    width: 200px;
+  }
+
+  .icon-right {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .icon-left {
+    display: block;
+  }
+
+  .slider-center {
+    width: 150px;
+  }
+
+  .icon-right {
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav-bar {
+    display: none;
+  }
+
+  .mini-navbar {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-bg);
+  }
+
+  .up-bar {
+    width: calc(100% - 50px);
+  }
+  
+  .little-logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .little-user {
+    background-color: var(--btn-color);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  
+  .player-container {
+    gap: 20px;
+  }
+
+  .slider-center {
+    width: 120px;
+  }
+
+  .icon-right {
+    margin-right: 5px;
+  }
 }
